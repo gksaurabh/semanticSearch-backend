@@ -14,3 +14,4 @@ pip install scipy
 pip install pyrebase
 pip install pyrebase4
 pip install matplotlib
+pip install PyJWT
