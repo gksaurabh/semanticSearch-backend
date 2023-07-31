@@ -9,7 +9,7 @@ pip install openai -q
 pip install openai
 pip install pandas
 pip install plotly
-pip install sklearn
+pip install scikit-learn
 pip install scipy
 pip install pyrebase
 pip install pyrebase4
