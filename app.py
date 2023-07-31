@@ -11,7 +11,7 @@ from flask import jsonify
 
 
 #Config open ai key to use embeddings
-openai_key = "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"
+openai_key = "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"
 openai.api_key = openai_key
 
 #config for Database
