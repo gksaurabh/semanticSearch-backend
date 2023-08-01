@@ -16,3 +16,4 @@ pip install pyrebase4
 pip install matplotlib
 pip install PyJWT
 pip install gunicorn
+pip install python-dotenv

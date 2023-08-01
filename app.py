@@ -6,17 +6,21 @@ from openai.embeddings_utils import cosine_similarity
 from pyrebase import pyrebase
 from flask import Flask
 from flask import jsonify
+from dotenv import load_dotenv
+import os
+
 # from db import getData
+def configure():
+    load_dotenv()
 
 
-
-#Config open ai key to use embeddings
-openai_key = "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"
-openai.api_key = openai_key
+#Config api keys to use embeddings 
+configure()
+openai.api_key = os.getenv('OPENAI_API_KEY')
 
 #config for Database
 config = {
-  'apiKey': "AIzaSyCQ-ptwgriECFfZwHLEMz2wRX9LQOlQwW8",
+  'apiKey': os.getenv('FIREBASE_API_KEY'),
   'authDomain': "cie-air.firebaseapp.com",
   'databaseURL': "https://cie-air-default-rtdb.firebaseio.com",
   'projectId': "cie-air",
