@@ -90,10 +90,10 @@ def search(search_term):
         values.append(hit)
     
     #result with key value pair of index and name
-    result = {}
+    result = []
     
     for i in range(len(keys)):
         element = {"index": keys[i],"name": values[i]}
-        result.update({i:element})
+        result.append(element)
 
     return jsonify(result)
