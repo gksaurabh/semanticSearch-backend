@@ -17,3 +17,4 @@ pip install matplotlib
 pip install PyJWT
 pip install gunicorn
 pip install python-dotenv
+pip install -U flask_cors

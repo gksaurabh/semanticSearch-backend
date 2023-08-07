@@ -7,6 +7,7 @@ from pyrebase import pyrebase
 from flask import Flask
 from flask import jsonify
 from dotenv import load_dotenv
+from flask_cors import CORS, cross_origin
 import os
 
 # from db import getData
@@ -63,13 +64,16 @@ df = getData()
 
 
 app = Flask(__name__)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route("/")
+@cross_origin()
 def hello_world():
     return "<p>Hello, World!</p>"
 
 #localhost/search?query=searchValue
 @app.route("/search/<search_term>")
+@cross_origin()
 def search(search_term): 
     search_term_vector = get_embedding(search_term,engine='text-embedding-ada-002')
     df['similarities'] = df['embeddings'].apply(lambda x: cosine_similarity(x,search_term_vector))
