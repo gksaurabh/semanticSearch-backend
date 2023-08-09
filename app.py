@@ -77,7 +77,7 @@ def hello_world():
 def search(search_term): 
     search_term_vector = get_embedding(search_term,engine='text-embedding-ada-002')
     df['similarities'] = df['embeddings'].apply(lambda x: cosine_similarity(x,search_term_vector))
-    ranking = df.sort_values("similarities", ascending=False).head(5)
+    ranking = df.sort_values("similarities", ascending=False).head(9)
    
     #indicies refering to the names
     keys = ranking.index.tolist()
