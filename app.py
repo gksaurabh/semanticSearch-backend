@@ -123,25 +123,25 @@ def search(search_term):
 
         addToResult(index,names,result)
 
-    # #This is where the semantic search algorithm takes place.
-    # search_term_vector = get_embedding(search_term,engine='text-embedding-ada-002')
-    # df['similarities'] = df['embeddings'].apply(lambda x: cosine_similarity(x,search_term_vector))
-    # ranking = df.sort_values("similarities", ascending=False).head(9)
+    #This is where the semantic search algorithm takes place.
+    search_term_vector = get_embedding(search_term,engine='text-embedding-ada-002')
+    df['similarities'] = df['embeddings'].apply(lambda x: cosine_similarity(x,search_term_vector))
+    ranking = df.sort_values("similarities", ascending=False).head(9)
    
-    # #indicies refering to the names
-    # keys = ranking.index.tolist()
+    #indicies refering to the names
+    keys = ranking.index.tolist()
 
-    # #names
-    # values = []
+    #names
+    values = []
     
-    # #add names to values
-    # for hit in ranking['name']:
-    #     values.append(hit)
+    #add names to values
+    for hit in ranking['name']:
+        values.append(hit)
     
     
     
-    # for i in range(len(keys)):
-    #     element = {"index": keys[i],"name": values[i]}
-    #     result.append(element)
+    for i in range(len(keys)):
+        element = {"index": keys[i],"name": values[i]}
+        result.append(element)
 
     return jsonify(result)
